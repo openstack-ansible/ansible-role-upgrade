@@ -43,3 +43,4 @@ script:
     - "sudo cat /var/log/mysql/error.log"
 
     # FIXME: query local name service
+    
