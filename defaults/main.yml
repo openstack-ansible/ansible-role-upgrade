@@ -1,4 +1,4 @@
 ---
 fail2ban_default_bantime: 10800
 fail2ban_default_findtime: 10800
-fail2ban_default_maxretries: 3
+fail2ban_default_maxretry: 3
