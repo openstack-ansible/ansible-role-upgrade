@@ -1,16 +1,16 @@
-marklee77.dnsmasq-cache
-=======================
+marklee77.fail2ban
+==================
 
-[![Build Status](https://travis-ci.org/marklee77/ansible-role-dnsmasq-cache.svg?branch=master)](https://travis-ci.org/marklee77/ansible-role-dnsmasq-cache)
+[![Build Status](https://travis-ci.org/marklee77/ansible-role-fail2ban.svg?branch=master)](https://travis-ci.org/marklee77/ansible-role-fail2ban)
 
-dnsmasq-cache role for Ubuntu.
+fail2ban role for Ubuntu.
 
 Example Playbook
 -------------------------
 
     - hosts: default
       roles:
-        - marklee77.dnsmasq-cache
+        - marklee77.fail2ban
 
 License
 -------

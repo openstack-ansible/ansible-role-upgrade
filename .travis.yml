@@ -38,9 +38,8 @@ script:
       && (echo 'Idempotence test: pass' && exit 0)
       || (echo 'Idempotence test: fail' && exit 1)
 
-    # Some MySQL debugging (show all the logs).
+    # Some debugging (show all the logs).
     - "sudo ls -lah /var/log"
-    - "sudo cat /var/log/mysql/error.log"
 
     # FIXME: query local name service
     
