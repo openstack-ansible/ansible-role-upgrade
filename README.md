@@ -1,25 +1,16 @@
-marklee77.mariadb
-=================
+marklee77.dnsmasq-cache
+=======================
 
-[![Build Status](https://travis-ci.org/marklee77/ansible-role-mariadb.svg?branch=master)](https://travis-ci.org/marklee77/ansible-role-mariadb)
+[![Build Status](https://travis-ci.org/marklee77/ansible-role-dnsmasq-cache.svg?branch=master)](https://travis-ci.org/marklee77/ansible-role-dnsmasq-cache)
 
-MariaDB role for Ubuntu.
-
-Role Variables
---------------
-
-- mariadb_repository_mirror: mariadb repository mirror, set to 
-                             http://mirrors.coreix.net/mariadb by default.
-- mariadb_version: mariadb version, set to 10.0 by default.
-- mariadb_root_mysql_password: root mysql password; set to a random value by 
-                               default.
+dnsmasq-cache role for Ubuntu.
 
 Example Playbook
 -------------------------
 
     - hosts: default
       roles:
-        - marklee77.mariadb
+        - marklee77.dnsmasq-cache
 
 License
 -------

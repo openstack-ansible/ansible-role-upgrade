@@ -42,10 +42,4 @@ script:
     - "sudo ls -lah /var/log"
     - "sudo cat /var/log/mysql/error.log"
 
-    # Check to make sure we can connect to MySQL.
-    - >
-      sudo -i mysql -u root -e 'show databases;'
-      | grep -q 'performance_schema'
-      && (echo 'MariaDB running normally' && exit 0)
-      || (echo 'MariaDB not running' && exit 1)
-
+    # FIXME: query local name service
