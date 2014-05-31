@@ -7,15 +7,9 @@ env:
 
 before_install:
 
-    # Remove MySQL.
-    - sudo apt-get -y purge 'mysql*'
+    - sudo apt-get update -qq
     - sudo apt-get -y autoremove
     - sudo apt-get -y autoclean
-    - sudo rm -rf /var/lib/mysql
-    - sudo truncate -s 0 /var/log/mysql/error.log
-
-    # Make sure everything's up to date.
-    - sudo apt-get update -qq
 
 install:
 
