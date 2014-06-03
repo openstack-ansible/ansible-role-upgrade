@@ -1,8 +1,0 @@
----
-- name: restart logwatch
-  service:
-    name: "{{ item }}"
-    state: restarted
-  with_items:
-    - logwatch
-

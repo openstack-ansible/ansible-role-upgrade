@@ -1,17 +1,4 @@
-- hosts: localhost
-  connection: local
-  sudo: False
-  tasks:
-
-    - name: check out roles needed for testing from github.com
-      git:
-        repo: 'https://github.com/marklee77/ansible-role-{{ item }}'
-        dest: roles/marklee77.{{ item }}
-        update: yes
-      with_items:
-        - mariadb
-        - mailserver
-
+---
 - hosts: all
   sudo: True
   roles:

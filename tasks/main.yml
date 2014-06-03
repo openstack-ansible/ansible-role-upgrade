@@ -23,14 +23,4 @@
     owner: root
     group: root
     mode: 0644
-  notify:
-    - restart logwatch
-
-- name: ensure logwatch service is started and enabled
-  service:
-    name: "{{ item }}"
-    enabled: yes
-    state: started
-  with_items:
-    - logwatch
 
