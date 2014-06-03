@@ -1,5 +1,8 @@
 ---
-- name: restart fail2ban
-  service: 
-    name: fail2ban
-    state: restarted 
+- name: restart logwatch
+  service:
+    name: "{{ item }}"
+    state: restarted
+  with_items:
+    - logwatch
+

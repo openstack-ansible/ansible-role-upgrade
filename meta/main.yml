@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: Mark Stillwell
-  description: fail2ban for Ubuntu
+  description: logwatch for Ubuntu
   license: GPLv2
   min_ansible_version: 1.2
   platforms:
@@ -13,4 +13,5 @@ galaxy_info:
     - saucy
     - trusty
   categories:
-dependencies: []
+dependencies: 
+    - marklee77.mailserver

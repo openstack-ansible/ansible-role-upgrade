@@ -1,5 +1,6 @@
-- hosts: default
+- hosts: all
   sudo: True
   roles:
-    - marklee77.fail2ban
-
+    - marklee77.mariadb
+    - marklee77.mailserver
+    - marklee77.logwatch

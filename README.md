@@ -1,16 +1,18 @@
-marklee77.fail2ban
+marklee77.logwatch
 ==================
 
-[![Build Status](https://travis-ci.org/marklee77/ansible-role-fail2ban.svg?branch=master)](https://travis-ci.org/marklee77/ansible-role-fail2ban)
+[![Build Status](https://travis-ci.org/marklee77/ansible-role-logwatch.svg?branch=master)](https://travis-ci.org/marklee77/ansible-role-logwatch)
 
-fail2ban role for Ubuntu.
+logwatch role for Ubuntu.
 
 Example Playbook
 -------------------------
 
-    - hosts: default
+    - hosts: all
       roles:
-        - marklee77.fail2ban
+        - marklee77.mariadb
+        - marklee77.mailserver
+        - marklee77.logwatch
 
 License
 -------
