@@ -1,9 +1,10 @@
 marklee77.logwatch
 ==================
 
-[![Build Status](https://travis-ci.org/marklee77/ansible-role-logwatch.svg?branch=master)](https://travis-ci.org/marklee77/ansible-role-logwatch)
-
 logwatch role for Ubuntu.
+
+This role requires the mailserver role, which does not work with Ubuntu Precise,
+so cannot be tested using travis currently.
 
 Example Playbook
 -------------------------
@@ -11,6 +12,7 @@ Example Playbook
     - hosts: all
       roles:
         - marklee77.mariadb
+        - marklee77.tomcat6
         - marklee77.mailserver
         - marklee77.logwatch
 
