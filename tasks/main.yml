@@ -13,6 +13,31 @@
   command: apt-get -y autoclean
   changed_when: false
 
+- name: ensure unattended-upgrades package is installed
+  apt:
+    pkg: "{{ item }}"
+    state: latest
+    update_cache: yes
+    cache_valid_time: 600
+  with_items:
+    - unattended-upgrades
+
+- name: update /etc/apt/apt.conf.d/20auto-updates from template
+  template:
+    src: etc/apt/apt.conf.d/20auto-upgrades
+    dest: /etc/apt/apt.conf.d/20auto-upgrades
+    owner: root
+    group: root
+    mode: 0644
+ 
+- name: update /etc/apt/apt.conf.d/50unattended-updates from template
+  template:
+    src: etc/apt/apt.conf.d/50unattended-upgrades
+    dest: /etc/apt/apt.conf.d/50unattended-upgrades
+    owner: root
+    group: root
+    mode: 0644
+
 - name: register running kernel version
   command: uname -r
   register: running_kernel
@@ -36,3 +61,4 @@
     delay: 30 
     timeout: 600
   when: installed_kernel.stdout != running_kernel.stdout
+
