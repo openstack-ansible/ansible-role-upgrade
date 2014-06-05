@@ -1,26 +1,39 @@
 ---
-- name: install logwatch packages
+- name: upgrade software packages to latest version
   apt: 
-    pkg: "{{ item }}" 
-    state: latest 
-    update_cache: yes 
-    cache_valid_time: 600
-  with_items:
-    - logwatch
+    update_cache: yes
+    upgrade: dist 
 
-- name: ensure /var/cache/logwatch exists and has correct permissions
-  file:
-    path: /var/cache/logwatch
-    owner: root
-    group: root
-    mode: 0755
-    state: directory
- 
-- name: update /etc/logwatch/conf/logwatch.conf from template
-  template:
-    src: etc/logwatch/conf/logwatch.conf
-    dest: /etc/logwatch/conf/logwatch.conf
-    owner: root
-    group: root
-    mode: 0644
+- name: autoremove unneeded packages
+  command: apt-get -y autoremove
+  register: aptget_autoremove
 
+- debug: msg="{{aptget_autoremove}}"
+
+- name: autoclean archived packages
+  command: apt-get -y autoclean
+  register: aptget_autoclean
+
+- debug: msg="{{aptget_autoclean}}"
+
+- name: register running kernel version
+  command: uname -r
+  register: running_kernel
+
+- name: register installed kernel version
+  shell: dpkg -l | grep "linux-image-[0-9]" | sort | tail -1 | perl -ane 'print substr($F[1], 12), "\n"'
+  register: installed_kernel
+
+- name: reboot if kernel version has changed
+  command: /sbin/reboot
+  when: installed_kernel.stdout != running_kernel.stdout
+
+- name: wait for reboot
+  sudo: False
+  delegate_to: localhost
+  wait_for: 
+    host: "{{ ansible_ssh_host|default(inventory_host) }}" 
+    port: "{{ ansible_ssh_port|default(22) }}"
+    delay: 30 
+    timeout: 600
+  when: installed_kernel.stdout != running_kernel.stdout

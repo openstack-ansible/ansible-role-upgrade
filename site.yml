@@ -2,6 +2,4 @@
 - hosts: all
   sudo: True
   roles:
-    - marklee77.mariadb
-    - marklee77.mailserver
-    - marklee77.logwatch
+    - marklee77.upgrade

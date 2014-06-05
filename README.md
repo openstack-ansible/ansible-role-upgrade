@@ -1,20 +1,16 @@
 marklee77.logwatch
 ==================
 
-logwatch role for Ubuntu.
+Role to manage upgrades for Ubuntu.
 
-This role requires the mailserver role, which does not work with Ubuntu Precise,
-so cannot be tested using travis currently.
+This role can reboot the system, so cannot be tested on travis.
 
 Example Playbook
 -------------------------
 
     - hosts: all
       roles:
-        - marklee77.mariadb
-        - marklee77.tomcat6
-        - marklee77.mailserver
-        - marklee77.logwatch
+        - marklee77.upgrade
 
 License
 -------

@@ -1,4 +1,0 @@
----
-logwatch_mailto: root
-logwatch_range: Yesterday
-logwatch_detail: Low
