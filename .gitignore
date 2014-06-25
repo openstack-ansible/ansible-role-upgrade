@@ -1,3 +1,1 @@
 .vagrant
-roles/*
-!roles/marklee77.logwatch
