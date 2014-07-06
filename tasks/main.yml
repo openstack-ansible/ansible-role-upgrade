@@ -56,7 +56,7 @@
   sudo: False
   delegate_to: localhost
   wait_for: 
-    host: "{{ ansible_ssh_host|default(inventory_host) }}" 
+    host: "{{ ansible_ssh_host|default(inventory_hostname) }}" 
     port: "{{ ansible_ssh_port|default(22) }}"
     delay: 30 
     timeout: 600

@@ -1,5 +1,5 @@
-marklee77.logwatch
-==================
+marklee77.upgrade
+=================
 
 Role to manage upgrades for Ubuntu.
 
@@ -20,4 +20,4 @@ GPLv2
 Author Information
 ------------------
 
-http://marklee77.github.io/
+http://stillwell.me
