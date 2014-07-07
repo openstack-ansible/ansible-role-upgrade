@@ -50,7 +50,8 @@
 
 - name: reboot if kernel version has changed
   command: /sbin/reboot
-  when: installed_kernel.stdout != running_kernel.stdout
+  register: reboot_result
+  when: upgrade_enable_reboot and installed_kernel.stdout != running_kernel.stdout
 
 - name: wait for reboot
   sudo: False
@@ -60,5 +61,5 @@
     port: "{{ ansible_ssh_port|default(22) }}"
     delay: 30 
     timeout: 600
-  when: installed_kernel.stdout != running_kernel.stdout
+  when: reboot_result|changed
 

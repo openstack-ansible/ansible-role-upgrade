@@ -1,0 +1,4 @@
+---
+upgrade_enable_reboot: true
+upgrade_enable_automatic_reboot: true
+upgrade_automatic_reboot_time: "01:00"
